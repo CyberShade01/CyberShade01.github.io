@@ -65,111 +65,78 @@
             text-align: center;
         }
 
-        .button-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .launch-button {
+            background-color: #4caf50;
             color: white;
-            text-decoration: none;
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            width: 100px;
-            height: 100px;
-        }
-
-        .button img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .button img:hover {
-            transform: scale(1.1);
-        }
-
-        .typewriter {
-            margin-top: 30px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #00ccff;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid #00ccff;
-            width: 25ch;
+            border: none;
+            padding: 15px 30px;
             text-align: center;
-            animation: typing 4s steps(25, end) infinite, blink-caret 0.7s step-end infinite;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 25ch; }
+        .launch-button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
         }
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #00ccff; }
+        .help-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .help-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
     <div class="particles" id="particles"></div>
     <div class="logo">cyber shade</div>
-    <div class="button-container">
-        <a href="gms" class="button" id="gamesBtn">
-            <img src="game-icon-png-4486.png" alt="Games">
-        </a>
-        <a href="aps" class="button" id="appsBtn">
-            <img src="https://i.pinimg.com/736x/e9/a0/94/e9a0948c39cf174574fb28d8250090cc.jpg" alt="Apps">
-        </a>
-        <a href="srch" class="button" id="searchBtn">
-            <img src="https://e7.pngegg.com/pngimages/492/584/png-clipart-magnifying-glass-drawing-above-all-enterprises-inc-ear-photography-people.png" alt="Search">
-        </a>
-    </div>
-    <div class="typewriter" id="typewriter"></div>
+    <button class="launch-button" onclick="openGame()">Launch</button>
+    <button class="help-button" onclick="openHelp()">Help</button>
 
     <script>
-        const typewriterElement = document.getElementById('typewriter');
-        const typewriterTexts = ["welcome to our site!", "explore games!", "discover apps!", "enjoy your stay!"];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function typeEffect() {
-            if (!isDeleting && charIndex <= typewriterTexts[textIndex].length) {
-                typewriterElement.textContent = typewriterTexts[textIndex].substring(0, charIndex++);
-                setTimeout(typeEffect, 100);
-            } else if (isDeleting && charIndex > 0) {
-                typewriterElement.textContent = typewriterTexts[textIndex].substring(0, charIndex--);
-                setTimeout(typeEffect, 50);
-            } else {
-                isDeleting = !isDeleting;
-                if (!isDeleting) {
-                    textIndex = (textIndex + 1) % typewriterTexts.length;
-                }
-                setTimeout(typeEffect, 1000);
-            }
+        function openGame() {
+            var win = window.open();
+            var url = "https://cybershade01.github.io/srch";
+            var iframe = win.document.createElement('iframe');
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = url;
+            win.document.body.style.margin = "0";
+            win.document.body.style.height = "100vh";
+            win.document.body.appendChild(iframe);
         }
 
-        typeEffect();
+        function openHelp() {
+            var win = window.open();
+            var url = "https://cybershade01.github.io/hlp";
+            var iframe = win.document.createElement('iframe');
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = url;
+            win.document.body.style.margin = "0";
+            win.document.body.style.height = "100vh";
+            win.document.body.appendChild(iframe);
+        }
 
         // Particle effect generation
         const particlesContainer = document.getElementById('particles');
