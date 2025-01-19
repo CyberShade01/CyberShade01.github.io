@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberShade</title>
     <style>
+        /* Existing styles remain unchanged */
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
@@ -122,62 +123,51 @@
     </div>
 
     <script>
+        // Self-opening in an iframe if not already in one
+        window.onload = function () {
+            if (window.self === window.top) {
+                const newTab = window.open();
+                newTab.document.write(`
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>CyberShade</title>
+                    </head>
+                    <body style="margin: 0; height: 100vh; overflow: hidden;">
+                        <iframe src="${location.href}" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </body>
+                    </html>
+                `);
+                newTab.document.close();
+                window.close();
+            }
+        };
+
         function openGame() {
-            var win = window.open();
-            var url = "https://cybershade01.github.io/srch";
-            var iframe = win.document.createElement('iframe');
-            iframe.style.width = "100%";
-            iframe.style.height = "100%";
-            iframe.style.border = "none";
-            iframe.src = url;
-            win.document.body.style.margin = "0";
-            win.document.body.style.height = "100vh";
-            win.document.body.appendChild(iframe);
+            openInIframe("https://cybershade01.github.io/srch");
         }
 
         function openGoogle() {
-            var win = window.open();
-            var url = "https://camouflageisthebest.jakesthoughts.xyz/static/learn/hvtrs8%2F-wuw%2Cgmoelg.aoo%2F";
-            var iframe = win.document.createElement('iframe');
-            iframe.style.width = "100%";
-            iframe.style.height = "100%";
-            iframe.style.border = "none";
-            iframe.src = url;
-            win.document.body.style.margin = "0";
-            win.document.body.style.height = "100vh";
-            win.document.body.appendChild(iframe);
+            openInIframe("https://camouflageisthebest.jakesthoughts.xyz/static/learn/hvtrs8%2F-wuw%2Cgmoelg.aoo%2F");
         }
 
         function openBackupProxy() {
-            var win = window.open();
-            var url = "https://cybershade01.github.io/srchbackup/";
-            var iframe = win.document.createElement('iframe');
-            iframe.style.width = "100%";
-            iframe.style.height = "100%";
-            iframe.style.border = "none";
-            iframe.src = url;
-            win.document.body.style.margin = "0";
-            win.document.body.style.height = "100vh";
-            win.document.body.appendChild(iframe);
+            openInIframe("https://cybershade01.github.io/srchbackup/");
         }
 
         function openCloaker() {
-            var win = window.open();
-            var url = "https://cybershade01.github.io/abclk/";
-            var iframe = win.document.createElement('iframe');
-            iframe.style.width = "100%";
-            iframe.style.height = "100%";
-            iframe.style.border = "none";
-            iframe.src = url;
-            win.document.body.style.margin = "0";
-            win.document.body.style.height = "100vh";
-            win.document.body.appendChild(iframe);
+            openInIframe("https://cybershade01.github.io/abclk/");
         }
 
         function openHelp() {
-            var win = window.open();
-            var url = "https://cybershade01.github.io/hlp/";
-            var iframe = win.document.createElement('iframe');
+            openInIframe("https://cybershade01.github.io/hlp/");
+        }
+
+        function openInIframe(url) {
+            const win = window.open();
+            const iframe = win.document.createElement('iframe');
             iframe.style.width = "100%";
             iframe.style.height = "100%";
             iframe.style.border = "none";
