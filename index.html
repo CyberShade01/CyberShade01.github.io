@@ -112,12 +112,13 @@
 </head>
 <body>
     <div class="particles" id="particles"></div>
-    <div class="logo">CyberShade</div>
-    <button class="launch-button" onclick="openGame()">Launch Browser</button>
+    <div class="logo">cyber shade</div>
+    <button class="launch-button" onclick="openGame()">Launch</button>
     <div class="top-right-buttons">
         <button onclick="openGoogle()">Google</button>
         <button onclick="openBackupProxy()">Backup Proxy</button>
-        <button onclick="openCloaker()">About:Blank Cloaker</button>
+        <button onclick="openCloaker()">Cloaker</button>
+        <button onclick="openHelp()">Help</button>
     </div>
 
     <script>
@@ -163,6 +164,19 @@
         function openCloaker() {
             var win = window.open();
             var url = "https://cybershade01.github.io/abclk/";
+            var iframe = win.document.createElement('iframe');
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = url;
+            win.document.body.style.margin = "0";
+            win.document.body.style.height = "100vh";
+            win.document.body.appendChild(iframe);
+        }
+
+        function openHelp() {
+            var win = window.open();
+            var url = "https://cybershade01.github.io/hlp/";
             var iframe = win.document.createElement('iframe');
             iframe.style.width = "100%";
             iframe.style.height = "100%";
