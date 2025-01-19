@@ -83,10 +83,15 @@
             transform: translateY(-3px);
         }
 
-        .help-button {
+        .top-right-buttons {
             position: absolute;
             top: 10px;
             right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .top-right-buttons button {
             background-color: #007bff;
             color: white;
             border: none;
@@ -99,7 +104,7 @@
             transition: background-color 0.3s, transform 0.2s;
         }
 
-        .help-button:hover {
+        .top-right-buttons button:hover {
             background-color: #0056b3;
             transform: translateY(-2px);
         }
@@ -109,7 +114,11 @@
     <div class="particles" id="particles"></div>
     <div class="logo">cyber shade</div>
     <button class="launch-button" onclick="openGame()">Launch</button>
-    <button class="help-button" onclick="openHelp()">Help</button>
+    <div class="top-right-buttons">
+        <button onclick="openGoogle()">Google</button>
+        <button onclick="openBackupProxy()">Backup Proxy</button>
+        <button onclick="openCloaker()">Cloaker</button>
+    </div>
 
     <script>
         function openGame() {
@@ -125,9 +134,9 @@
             win.document.body.appendChild(iframe);
         }
 
-        function openHelp() {
+        function openGoogle() {
             var win = window.open();
-            var url = "https://cybershade01.github.io/hlp/";
+            var url = "https://camouflageisthebest.jakesthoughts.xyz/static/learn/hvtrs8%2F-wuw%2Cgmoelg.aoo%2F";
             var iframe = win.document.createElement('iframe');
             iframe.style.width = "100%";
             iframe.style.height = "100%";
@@ -138,7 +147,33 @@
             win.document.body.appendChild(iframe);
         }
 
-        // Particle effect generation.dsst
+        function openBackupProxy() {
+            var win = window.open();
+            var url = "https://cybershade01.github.io/srchbackup/";
+            var iframe = win.document.createElement('iframe');
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = url;
+            win.document.body.style.margin = "0";
+            win.document.body.style.height = "100vh";
+            win.document.body.appendChild(iframe);
+        }
+
+        function openCloaker() {
+            var win = window.open();
+            var url = "https://cybershade01.github.io/abclk/";
+            var iframe = win.document.createElement('iframe');
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = url;
+            win.document.body.style.margin = "0";
+            win.document.body.style.height = "100vh";
+            win.document.body.appendChild(iframe);
+        }
+
+        // Particle effect generation
         const particlesContainer = document.getElementById('particles');
 
         function createParticle() {
